@@ -1,0 +1,67 @@
+<!--<p>signup works!</p>-->
+<section
+  class="header"
+  style="
+    background-image: url(./assets/images/signup.jpg);
+  
+  "
+>
+  <div class="mask" style="background-color: rgba(14, 14, 14, 0.7)">
+    <div class="container py-4 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong bg-dark" style="border-radius: 1rem">
+            <div class="card-body p-5 text-center" style="color: aliceblue;">
+              <h3 class="mb-5">Sign In</h3>
+              <form>
+                <div class="form-outline mb-4">
+                  <input
+                    type="username"
+                    name="name"
+                    class="form-control form-control-lg"
+                    ngModel
+                  />
+                  <label class="form-label" for="name">Username</label>
+
+                  <input
+                    type="email"
+                    name="email"
+                    class="form-control form-control-lg"
+                    ngModel
+                  />
+                  <label class="form-label" for="email">Email</label>
+
+                  <input
+                    type="password"
+                    name="password"
+                    class="form-control form-control-lg"
+                    ngModel
+                  />
+                  <label class="form-label" for="password">Password</label>
+
+                  <input
+                    type="password"
+                    name="reenterpassword"
+                    class="form-control form-control-lg"
+                    ngModel
+                  />
+                  <label class="form-label" for="password"
+                    >Reenter Password</label
+                  >
+                </div>
+
+                <button class="btn btn-primary btn-lg btn-block" type="submit">
+                  Signup
+                </button>
+
+                <!--<div class="text-left">
+                <a class="mb-85" routerLink="login">I have an account..</a>
+            </div>-->
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

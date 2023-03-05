@@ -1,0 +1,56 @@
+<!--<p>navbar works!</p>-->
+<section class="header">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" routerLink="">Nxt-Gen Games</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-target="#navbarSupportedContent"
+        data-bs-toggle="collapse"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="collapse navbar-collapse justify-content-end"
+        id="navbarSupportedContent"
+      >
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Store
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" routerLink="adventure">Adventure</a>
+              <a class="dropdown-item" routerLink="action">Action</a>
+              <a class="dropdown-item" routerLink="rpg">RPG</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="signup">Signup</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="about">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</section>

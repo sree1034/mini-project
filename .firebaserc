@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "games-store-79e05": {
+      "hosting": {
+        "GamesStore": [
+          "games-store-79e05"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "games-store-79e05"
+  }
+}
