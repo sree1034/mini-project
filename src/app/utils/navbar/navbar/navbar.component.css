@@ -27,7 +27,7 @@
 
 .nav-item{
   text-transform: uppercase;
-  padding-left: 70px;
+  padding-left: 60px;
 
 }
 .nav-link{
@@ -43,6 +43,7 @@
   color:#262626 !important;
   border-radius: 5px;
   transition:all 0.6s ease 0s;
+  cursor: pointer;
 }
 
 .dropdown-menu{
@@ -60,3 +61,13 @@
 .dropdown-item:hover{
   background: #88888a!important;
 }
+
+.nav-item button{
+  color: rgb(247, 247, 246);
+  background-color:rgba(4, 4, 4, 0.6);
+  letter-spacing: 2px;
+  font-weight:500;
+  font-size: lem;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { Auth } from '@angular/fire/auth';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -6,5 +9,40 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+
+  emailIn: string = ""
+  passwordIn: string = ""
+
+  Name: string = ""
+  emailUp: string = ""
+  passwordUp: string = ""
+  cpasswordUp: string = ""
+  user: any 
+  constructor(private auths : AuthService,public auth:Auth) { }
+  
+  login() {
+    if (this.emailIn == "") {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please enter your email...',
+        background: "#212529"
+      })
+      return
+    }
+    if (this.passwordIn == "") {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please enter your password...',
+        background: "#212529"
+      })
+      return
+    }
+
+    this.auths.login(this.emailIn, this.passwordIn)
+    this.emailIn = ""
+    this.passwordIn = ""
+  }
 
 }

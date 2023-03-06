@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { User} from '@angular/fire/auth';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,11 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  constructor(private auth: AuthService) { }
 
-  database=[
-    {
-      "logo":""
-    }
-  ]
+ 
+  logout(){
 
+   this.auth.logout();
+   
+}
 }

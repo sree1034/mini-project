@@ -1,0 +1,124 @@
+import { Injectable } from '@angular/core';
+import {
+  Auth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+} from '@angular/fire/auth';
+
+import { doc, Firestore, setDoc } from '@angular/fire/firestore';
+
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AuthService {
+  user: any;
+  constructor(
+    private auth: Auth,
+    private firestore: Firestore,
+    private router: Router
+  ) {}
+
+  signup(email: string, password: string, name: string) {
+    createUserWithEmailAndPassword(this.auth, email, password).then(
+      (res) => {
+        const uid = res.user.uid;
+        const email = res.user.email;
+        const user = {
+          email: email,
+          name: name,
+        };
+        const docRef = doc(this.firestore, 'users', uid);
+        setDoc(docRef, user)
+          .then(() => {
+            console.log('Data added successfully');
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Signing up successfully...',
+          background: '#212529',
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        this.router.navigate(['login']);
+      },
+      (err) => {
+        if (err.code === 'auth/email-already-in-use') {
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Already signed up with this email address...',
+            background: '#212529',
+            showConfirmButton: false,
+            timer: 2000,
+          });
+        }
+        this.router.navigate(['login']);
+      }
+    );
+  }
+
+  login(email: string, password: string) {
+    signInWithEmailAndPassword(this.auth, email, password).then(
+      () => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Signed In successfully...',
+          background: '#212529',
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        this.router.navigate(['']);
+      },
+      (err) => {
+        if (err.code === 'auth/wrong-password') {
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Wrong Password Please Try Again',
+            background: '#212529',
+            showConfirmButton: false,
+            timer: 2000,
+          });
+        }
+        this.router.navigate(['login']);
+      }
+    );
+  }
+
+  logout() {
+    signOut(this.auth).then(
+      () => {
+        localStorage.removeItem('token');
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Signed Out successfully...',
+          background: '#212529',
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        this.router.navigate(['']);
+      },
+      (err) => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Something went wrong ' + err,
+          background: '#212529',
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        this.router.navigate(['']);
+      }
+    );
+  }
+}

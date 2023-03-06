@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './pages/about/about/about.component';
 import { HomeComponent } from './pages/home/home/home.component';
 import { LoginComponent } from './pages/login/login/login.component';
+import { LogoutComponent } from './pages/logout/logout.component';
 import { SignupComponent } from './pages/signup/signup/signup.component';
 import { SingleactionComponent } from './pages/singleaction/singleaction/singleaction.component';
 import { SinglegameComponent } from './pages/singlegame/singlegame/singlegame.component';
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: 'rpg', component: RpgComponent },
   { path: 'adventure/:id', component: SinglegameComponent },
   {path:'action/:id', component: SingleactionComponent },
-  {path:'rpg/:id',component:SinglerpgComponent}
+  {path:'rpg/:id',component:SinglerpgComponent},
+  {path:'logout',component:LogoutComponent}
 ];
 
 @NgModule({

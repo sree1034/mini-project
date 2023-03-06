@@ -16,41 +16,64 @@
               <form>
                 <div class="form-outline mb-4">
                   <input
-                    type="username"
                     name="name"
+                    placeholder="Full Name"
+                    [(ngModel)]="Name"
+                    id="name"
+                    type="name"
                     class="form-control form-control-lg"
-                    ngModel
+                    
                   />
-                  <label class="form-label" for="name">Username</label>
+
+                  <br>
+                  <!-- <label class="form-label" for="name">Username</label> -->
 
                   <input
-                    type="email"
-                    name="email"
-                    class="form-control form-control-lg"
-                    ngModel
+                  name="emailUp"
+                  placeholder="Email"
+                  [(ngModel)]="emailUp"
+                  id="email"
+                  type="email"
+                  class="form-control form-control-lg"
+                  
+                    
                   />
-                  <label class="form-label" for="email">Email</label>
+
+                  <br>
+                  <!-- <label class="form-label" for="email">Email</label> -->
 
                   <input
-                    type="password"
-                    name="password"
-                    class="form-control form-control-lg"
-                    ngModel
+                  name="passwordUp"
+                  placeholder="Password"
+                  [(ngModel)]="passwordUp"
+                  id="password"
+                  type="password"
+                  class="form-control form-control-lg"
+                  
+                    
                   />
-                  <label class="form-label" for="password">Password</label>
+
+                  <br>
+                  <!-- <label class="form-label" for="password">Password</label> -->
 
                   <input
-                    type="password"
-                    name="reenterpassword"
-                    class="form-control form-control-lg"
-                    ngModel
+                  name="cpasswordUp"
+                  placeholder="Confirm Password"
+                  [(ngModel)]="cpasswordUp"
+                  id="confirm_password"
+                  type="password"
+                  class="form-control form-control-lg"
+                  
+                    
                   />
-                  <label class="form-label" for="password"
+
+                  <br>
+                  <!-- <label class="form-label" for="password"
                     >Reenter Password</label
-                  >
+                  > -->
                 </div>
 
-                <button class="btn btn-primary btn-lg btn-block" type="submit">
+                <button (click)="signUp()" class="btn btn-primary btn-lg btn-block" type="submit">
                   Signup
                 </button>
 
