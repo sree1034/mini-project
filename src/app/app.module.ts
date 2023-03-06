@@ -23,7 +23,6 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
-import { LogoutComponent } from './pages/logout/logout.component';
 
 
 @NgModule({
@@ -43,7 +42,6 @@ import { LogoutComponent } from './pages/logout/logout.component';
     SingleactionComponent,
     SinglerpgComponent,
     SafePipe,
-    LogoutComponent,
 
   ],
   imports: [
