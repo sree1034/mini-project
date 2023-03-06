@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { Auth } from '@angular/fire/auth';
 import Swal from 'sweetalert2';
@@ -10,6 +11,8 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent {
 
+
+ 
   emailIn: string = ""
   passwordIn: string = ""
 
@@ -18,7 +21,13 @@ export class LoginComponent {
   passwordUp: string = ""
   cpasswordUp: string = ""
   user: any 
-  constructor(private auths : AuthService,public auth:Auth) { }
+  constructor(private auths : AuthService,private router:Router,public auth:Auth) { }
+
+
+  signup(){
+    this.router.navigate(['signup']);
+  }
+
   
   login() {
     if (this.emailIn == "") {

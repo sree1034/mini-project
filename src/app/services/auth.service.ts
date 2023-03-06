@@ -71,7 +71,7 @@ export class AuthService {
         Swal.fire({
           position: 'center',
           icon: 'success',
-          title: 'Signed In successfully...',
+          title: 'Logged In successfully...',
           background: '#212529',
           showConfirmButton: false,
           timer: 2000,
@@ -101,7 +101,7 @@ export class AuthService {
         Swal.fire({
           position: 'center',
           icon: 'success',
-          title: 'Signed Out successfully...',
+          title: 'Logged Out successfully...',
           background: '#212529',
           showConfirmButton: false,
           timer: 2000,
