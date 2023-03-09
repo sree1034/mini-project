@@ -76,8 +76,8 @@ export class AuthService {
           showConfirmButton: false,
           timer: 2000,
         });
-        localStorage.setItem('token','true');
-        this.router.navigate(['dashboard']);
+        sessionStorage.setItem('token','true');
+        this.router.navigate(['adventure']);
       },
       (err) => {
         if (err.code === 'auth/wrong-password') {
@@ -107,8 +107,8 @@ export class AuthService {
           showConfirmButton: false,
           timer: 2000,
         });
-        localStorage.removeItem('token');
-        this.router.navigate(['login']);
+        sessionStorage.removeItem('token');
+        this.router.navigate(['']);
       },
       (err) => {
         Swal.fire({
@@ -120,12 +120,12 @@ export class AuthService {
           timer: 2000,
         });
 
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['login']);
       }
     );
   }
 
-   //getUserById method
+   
  async getUserById(id:any):Promise<any> {
   const docRef = doc(this.firestore, "users", id)
   try {

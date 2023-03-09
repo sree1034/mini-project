@@ -10,40 +10,54 @@ export const adventure = [
   {
     id: 2,
     thumbnail: './assets/images/unchartedcard.jpg',
+    name: "Uncharted Legacy of Thieves",
+    price: "₹ 3,299",
     trending: true,
   },
 
   {
     id: 3,
     thumbnail: './assets/images/spidercard.jpg',
+    name: "Marvel's Spider-Man Remastered",
+    price: "₹ 3,999",
     trending: true,
   },
 
   {
     id: 4,
     thumbnail: './assets/images/gtacard.jpg',
+    name: "Grand Theft Auto V",
+    price: "₹ 1,978",
   },
 
   {
     id: 5,
     thumbnail: './assets/images/forzacard.jpg',
+    name: "Forza Horizon 5",
+    price: "₹ 3,499",
   },
 
   {
     id: 6,
     thumbnail: './assets/images/witchercard.jpg',
+    name: "The Witcher 3 Wild Hunt",
+    price: "₹ 800",
     trending: true,
   },
 
   {
     id: 7,
     thumbnail: './assets/images/residentcard.jpg',
+    name: " Resident Evil 4",
+    price: "₹ 3,599",
     trending: true,
   },
 
   {
     id: 8,
     thumbnail: './assets/images/fantasycard.jpg',
+    name: " Final Fantasy VII Remake Intergrade",
+    price: "₹ 4,799",
     trending: true,
   },
 ];

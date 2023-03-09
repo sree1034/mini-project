@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { User } from '@angular/fire/auth';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -10,11 +9,10 @@ import { AuthService } from 'src/app/services/auth.service';
 export class NavbarComponent {
   constructor(private auths: AuthService) {}
 
+  loggedInUser = sessionStorage.getItem('token') ? true : false;
+
   logout() {
     this.auths.logout();
   }
 
-
-
- 
 }
