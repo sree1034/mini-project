@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { advengames } from 'src/assets/data/adventure';
 import { action, singlevideo } from 'src/assets/data/data';
 import { adventure} from 'src/assets/data/data';
 import { rpg } from 'src/assets/data/data';
@@ -34,6 +35,10 @@ export default class GamesService {
 
   getRpg(){
     return rpgdat
+  }
+
+  getAdventureData(){
+    return advengames;
   }
 
 

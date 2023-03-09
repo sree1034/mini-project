@@ -23,6 +23,9 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
+import { PaymentComponent } from './pages/payment/payment/payment.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+
 
 
 @NgModule({
@@ -42,6 +45,10 @@ import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config
     SingleactionComponent,
     SinglerpgComponent,
     SafePipe,
+    PaymentComponent,
+    DashboardComponent,
+  
+  
 
   ],
   imports: [

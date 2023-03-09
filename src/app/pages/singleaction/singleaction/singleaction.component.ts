@@ -20,5 +20,9 @@ export class SingleactionComponent {
     console.log(this.act);
   }
 
+  gotoHere(id: any) {
+    localStorage.setItem('id', id);
+    this.router.navigate(['/payment/' + id]);
+  }
 
 }

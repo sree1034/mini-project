@@ -1,0 +1,27 @@
+/* .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  } */
+
+  .py-5 h2{
+    color: rgb(166, 248, 141);
+  }
+
+  .g-5{
+    color: rgb(166, 248, 141);
+  }
+
+  .g-5 h3{
+    position: relative;
+    right:75px;
+    color: whitesmoke;
+  }

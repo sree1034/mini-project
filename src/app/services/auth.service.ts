@@ -6,7 +6,7 @@ import {
   signOut,
 } from '@angular/fire/auth';
 
-import { doc, Firestore, setDoc } from '@angular/fire/firestore';
+import { doc, Firestore, setDoc, getDoc } from '@angular/fire/firestore';
 
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
@@ -60,7 +60,7 @@ export class AuthService {
             timer: 2000,
           });
         }
-        this.router.navigate(['login']);
+        this.router.navigate(['signup']);
       }
     );
   }
@@ -76,7 +76,8 @@ export class AuthService {
           showConfirmButton: false,
           timer: 2000,
         });
-        this.router.navigate(['']);
+        localStorage.setItem('token','true');
+        this.router.navigate(['dashboard']);
       },
       (err) => {
         if (err.code === 'auth/wrong-password') {
@@ -89,6 +90,7 @@ export class AuthService {
             timer: 2000,
           });
         }
+
         this.router.navigate(['login']);
       }
     );
@@ -97,7 +99,6 @@ export class AuthService {
   logout() {
     signOut(this.auth).then(
       () => {
-        localStorage.removeItem('token');
         Swal.fire({
           position: 'center',
           icon: 'success',
@@ -106,7 +107,8 @@ export class AuthService {
           showConfirmButton: false,
           timer: 2000,
         });
-        this.router.navigate(['']);
+        localStorage.removeItem('token');
+        this.router.navigate(['login']);
       },
       (err) => {
         Swal.fire({
@@ -117,8 +119,32 @@ export class AuthService {
           showConfirmButton: false,
           timer: 2000,
         });
-        this.router.navigate(['']);
+
+        this.router.navigate(['dashboard']);
       }
     );
   }
+
+   //getUserById method
+ async getUserById(id:any):Promise<any> {
+  const docRef = doc(this.firestore, "users", id)
+  try {
+    const docSnap = await getDoc(docRef);
+    if(docSnap.exists()) {
+      return docSnap.data()
+  } else {
+      console.log("Document does not exist")
+  }
+} catch(error) {
+    console.log(error)
 }
+}
+   
+}
+
+
+   
+
+
+
+

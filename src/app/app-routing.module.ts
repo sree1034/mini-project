@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './pages/about/about/about.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home/home.component';
 import { LoginComponent } from './pages/login/login/login.component';
+import { PaymentComponent } from './pages/payment/payment/payment.component';
 import { SignupComponent } from './pages/signup/signup/signup.component';
 import { SingleactionComponent } from './pages/singleaction/singleaction/singleaction.component';
 import { SinglegameComponent } from './pages/singlegame/singlegame/singlegame.component';
@@ -24,10 +26,12 @@ const routes: Routes = [
   { path: 'adventure/:id', component: SinglegameComponent },
   {path:'action/:id', component: SingleactionComponent },
   {path:'rpg/:id',component:SinglerpgComponent},
+  {path:'payment/:id', component:PaymentComponent},
+  {path:'dashboard',component:DashboardComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

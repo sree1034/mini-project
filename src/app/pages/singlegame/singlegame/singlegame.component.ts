@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import GamesService from 'src/app/services/games.service';
 import { Router } from '@angular/router';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -13,14 +13,15 @@ export class SinglegameComponent {
 
   
   adven: any;
+  adventure:any;
 
  
   
 
   pageid = localStorage.getItem('id');
-  constructor(private Game: GamesService, private router: Router,private games:GamesService) {}
+  constructor(private Game: GamesService, private router: Router,private games:GamesService,private activatedroute: ActivatedRoute) {}
 
- 
+
 
   ngOnInit(): void {
     let num = Number(this.pageid);
@@ -29,7 +30,13 @@ export class SinglegameComponent {
     let singleDataArray = this.Game.getAdventure();
     this.adven = singleDataArray.filter((d) => d.id === num);
     console.log(this.adven);
+    
+    
   }
-
+ 
+  gotoHere(id: any) {
+    localStorage.setItem('id', id);
+    this.router.navigate(['/payment/' + id]);
+  }
 
 }

@@ -7,15 +7,10 @@
   "
 >
   <div class="mask" style="background-color: rgba(14, 14, 14, 0.7)">
-    <div class="container py-4 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-          <div class="card shadow-2-strong bg-dark" style="border-radius: 1rem">
-            <div class="card-body p-5 text-center" style="color: aliceblue;">
-              <h3 class="mb-5">Sign Up</h3>
+              <h3 class="mb-5">Welcome</h3>
               <form>
                 <div class="form-outline mb-4">
-                  <input
+                  <!-- <input
                     name="name"
                     placeholder="Full Name"
                     [(ngModel)]="Name"
@@ -26,7 +21,7 @@
                   />
 
                   <br>
-                  <!-- <label class="form-label" for="name">Username</label> -->
+                  <label class="form-label" for="name">Username</label>
 
                   <input
                   name="emailUp"
@@ -39,9 +34,9 @@
                     
                   />
 
-                  <br>
+                  <br> -->
                   <!-- <label class="form-label" for="email">Email</label> -->
-
+<!-- 
                   <input
                   name="passwordUp"
                   placeholder="Password"
@@ -53,10 +48,10 @@
                     
                   />
 
-                  <br>
+                  <br> -->
                   <!-- <label class="form-label" for="password">Password</label> -->
 
-                  <input
+                  <!-- <input
                   name="cpasswordUp"
                   placeholder="Confirm Password"
                   [(ngModel)]="cpasswordUp"
@@ -67,26 +62,18 @@
                     
                   />
 
-                  <br>
+                  <br> -->
                   <!-- <label class="form-label" for="password"
                     >Reenter Password</label
                   > -->
                 </div>
 
-                <button (click)="signUp()" class="btn btn-primary btn-lg btn-block" type="submit">
-                  Signup
+                <button (click)="logout()" class="btn btn-primary btn-lg btn-block" type="submit">
+                  Logout
                 </button>
-                <div class="text-center">
-                  <br> Already a Memeber..?
-                <a class="mb-85" (click)="login()">Login Now</a>
-            </div>
 
                 
               </form>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+      
 </section>
