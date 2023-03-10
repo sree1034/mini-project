@@ -24,7 +24,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
 import { PaymentComponent } from './pages/payment/payment/payment.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+
 
 
 
@@ -46,7 +46,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     SinglerpgComponent,
     SafePipe,
     PaymentComponent,
-    DashboardComponent,
+   
 
   
   

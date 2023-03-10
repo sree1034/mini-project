@@ -7,6 +7,7 @@ import {
 } from '@angular/fire/auth';
 
 import { doc, Firestore, setDoc, getDoc } from '@angular/fire/firestore';
+import { BehaviorSubject } from 'rxjs';
 
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
@@ -15,6 +16,11 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
+  private loggedIn = new BehaviorSubject<boolean>(false);
+
+  get isLoggedIn() {
+    return this.loggedIn.asObservable(); // {2}
+  }
   user: any;
   constructor(
     private auth: Auth,
@@ -76,7 +82,8 @@ export class AuthService {
           showConfirmButton: false,
           timer: 2000,
         });
-        sessionStorage.setItem('token','true');
+        // sessionStorage.setItem('token','true');
+        this.loggedIn.next(true);
         this.router.navigate(['adventure']);
       },
       (err) => {
@@ -107,7 +114,8 @@ export class AuthService {
           showConfirmButton: false,
           timer: 2000,
         });
-        sessionStorage.removeItem('token');
+        // sessionStorage.removeItem('token');
+        this.loggedIn.next(false);
         this.router.navigate(['']);
       },
       (err) => {

@@ -46,20 +46,29 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="about">About</a>
           </li>
-          <li class="nav-item" *ngIf="!loggedInUser else elseBlock">
-            <a class="nav-link" routerLink="login">Signup/Login</a>
-          </li>
-          <ng-template #elseBlock>
-            <li class="nav-item" *ngIf="loggedInUser">
+          <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="login">Signup/Login</a> -->
+          <!-- </li> 
+            <li class="nav-item" *ngIf="isLoggedIn$ | async as isLoggedIn">
+              <a class="nav-link" (click)="logout()" *ngIf="isLoggedIn">Logout</a>
+            </li>
+          <li class="nav-item"> -->
+          <div *ngIf="(isLoggedIn$ | async) === false">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="login">Signup/Login</a>
+            </li>
+          </div>
+
+          <div *ngIf="(isLoggedIn$ | async) === true">
+            <li class="nav-item">
               <a class="nav-link" (click)="logout()">Logout</a>
             </li>
-          </ng-template>
-          <li class="nav-item">
-           
+          </div>
+
           <!-- <li><a class="nav-link" (click)="logout()" >
                Logout
           </a> -->
-          </li>
+          <!-- </li> -->
         </ul>
       </div>
     </div>
