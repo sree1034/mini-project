@@ -20,9 +20,9 @@ export class HomeComponent {
     './assets/images/hogcarou.jpg',
   ];
 
-  constructor(private hero: GamesService, private router: Router) {}
+  constructor(private games: GamesService, private router: Router) {}
 
-  trendingGames = this.hero.getTrendingGames();
+  trendingGames = this.games.getTrendingGames();
 
   gotoHere(id: any, category: string): void {
     this.router.navigate(['store/' + category + '/' + id]);
