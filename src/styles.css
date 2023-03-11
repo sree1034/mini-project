@@ -18,5 +18,6 @@
   body {
     overflow: auto;
     height: 100%;
-    overscroll-behavior: none;
+    overscroll-behavior: none; 
+    background-color: #1d1c1c;
   }

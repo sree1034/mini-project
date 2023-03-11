@@ -21,9 +21,10 @@ export class AuthService {
   );
 
   get isLoggedIn() {
-    return this.loggedIn.asObservable(); 
+    return this.loggedIn.asObservable();
   }
   user: any;
+
   constructor(
     private auth: Auth,
     private firestore: Firestore,

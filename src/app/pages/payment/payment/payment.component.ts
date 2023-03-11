@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import GamesService from 'src/app/services/games.service';
+import Swal from 'sweetalert2';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-payment',
@@ -12,7 +14,8 @@ export class PaymentComponent {
 
   constructor(
     private gamesService: GamesService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private auths: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -20,5 +23,17 @@ export class PaymentComponent {
       const gameId = Number(params['gameId']);
       this.selectedGame = this.gamesService.getGameById(gameId);
     });
+  }
+
+  payNow(){
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Payment Done Successfully...',
+      background: '#212529',
+      showConfirmButton: false,
+      timer: 2000,
+    });
+
   }
 }

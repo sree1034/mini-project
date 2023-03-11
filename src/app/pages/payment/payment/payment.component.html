@@ -182,9 +182,10 @@
                 <div class="form-check">
                   <input
                     id="credit"
-                    name="paymentMethod"
+                    name="creditcard"
                     type="radio"
                     class="form-check-input"
+                    
                     checked
                     required
                   />
@@ -195,9 +196,10 @@
                 <div class="form-check">
                   <input
                     id="debit"
-                    name="paymentMethod"
+                    name="debitcard"
                     type="radio"
                     class="form-check-input"
+                   
                     required
                   />
                   <label class="form-check-label" for="debit">Debit card</label>
@@ -221,7 +223,8 @@
                     type="text"
                     class="form-control"
                     id="cc-name"
-                    placeholder=""
+                    placeholder="Name"
+                  
                     required
                   />
                   
@@ -236,7 +239,8 @@
                     type="text"
                     class="form-control"
                     id="cc-number"
-                    placeholder=""
+                    placeholder="cardnumber"
+                  
                     required
                   />
                   <div class="invalid-feedback">
@@ -252,7 +256,8 @@
                     type="text"
                     class="form-control"
                     id="cc-expiration"
-                    placeholder=""
+                    placeholder="expiration"
+                  
                     required
                   />
                   <div class="invalid-feedback">Expiration date required</div>
@@ -261,10 +266,11 @@
                 <div class="col-md-3">
                   <label for="cc-cvv" class="form-label">CVV</label>
                   <input
-                    type="text"
+                    type="password"
                     class="form-control"
                     id="cc-cvv"
-                    placeholder=""
+                    placeholder="securitycode"
+             
                     required
                   />
                   <div class="invalid-feedback">Security code required</div>
@@ -277,6 +283,7 @@
                 class="w-50 btn btn-primary btn-lg"
                 style="left: 12rem; position: relative"
                 type="submit"
+               (click)="payNow()"
               >
                 Pay Now
               </button>
