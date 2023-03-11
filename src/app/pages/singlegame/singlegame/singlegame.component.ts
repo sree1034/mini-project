@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import GamesService from 'src/app/services/games.service';
 import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class SinglegameComponent {
   
 
   pageid = localStorage.getItem('id');
-  constructor(private Game: GamesService, private router: Router,private games:GamesService,private activatedroute: ActivatedRoute) {}
+  isLoggedIn$: Observable<boolean>;  
+  constructor(private Game: GamesService, private router: Router,private games:GamesService,private auth:AuthService) {}
 
 
 
@@ -31,12 +33,17 @@ export class SinglegameComponent {
     this.adven = singleDataArray.filter((d) => d.id === num);
     console.log(this.adven);
     
-    
+    this.isLoggedIn$ = this.auth.isLoggedIn; 
   }
  
-  gotoHere(id: any) {
+  gotoPayment(id: any) {
     localStorage.setItem('id', id);
+
     this.router.navigate(['/payment/' + id]);
+  }
+
+  gotoLogin(id: any){
+    this.router.navigate(['login'], { queryParams: { redirectUrl: '/payment/' + id }});
   }
 
 }

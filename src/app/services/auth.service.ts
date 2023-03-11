@@ -16,10 +16,12 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  private loggedIn = new BehaviorSubject<boolean>(false);
+  private loggedIn = new BehaviorSubject<boolean>(
+    !!sessionStorage.getItem('loggedInUser')
+  );
 
   get isLoggedIn() {
-    return this.loggedIn.asObservable(); // {2}
+    return this.loggedIn.asObservable(); 
   }
   user: any;
   constructor(
@@ -71,7 +73,7 @@ export class AuthService {
     );
   }
 
-  login(email: string, password: string) {
+  login(email: string, password: string, redirectUrl: string) {
     signInWithEmailAndPassword(this.auth, email, password).then(
       () => {
         Swal.fire({
@@ -82,9 +84,13 @@ export class AuthService {
           showConfirmButton: false,
           timer: 2000,
         });
-        // sessionStorage.setItem('token','true');
+        sessionStorage.setItem('loggedInUser', email);
         this.loggedIn.next(true);
-        this.router.navigate(['adventure']);
+        if (redirectUrl) {
+          this.router.navigate([redirectUrl]);
+        } else {
+          this.router.navigate(['adventure']);
+        }
       },
       (err) => {
         if (err.code === 'auth/wrong-password') {
@@ -114,8 +120,8 @@ export class AuthService {
           showConfirmButton: false,
           timer: 2000,
         });
-        // sessionStorage.removeItem('token');
         this.loggedIn.next(false);
+        sessionStorage.removeItem('loggedInUser');
         this.router.navigate(['']);
       },
       (err) => {
@@ -133,26 +139,17 @@ export class AuthService {
     );
   }
 
-   
- async getUserById(id:any):Promise<any> {
-  const docRef = doc(this.firestore, "users", id)
-  try {
-    const docSnap = await getDoc(docRef);
-    if(docSnap.exists()) {
-      return docSnap.data()
-  } else {
-      console.log("Document does not exist")
+  async getUserById(id: any): Promise<any> {
+    const docRef = doc(this.firestore, 'users', id);
+    try {
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        return docSnap.data();
+      } else {
+        console.log('Document does not exist');
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
-} catch(error) {
-    console.log(error)
 }
-}
-   
-}
-
-
-   
-
-
-
-

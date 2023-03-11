@@ -1,5 +1,5 @@
-import { Component,OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { Auth } from '@angular/fire/auth';
 import Swal from 'sweetalert2';
@@ -7,54 +7,50 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent {
+  emailIn: string = '';
+  passwordIn: string = '';
 
-ngOnInit(): void {
-  
-}
- 
+  Name: string = '';
+  emailUp: string = '';
+  passwordUp: string = '';
+  cpasswordUp: string = '';
+  user: any;
+  constructor(
+    private auths: AuthService,
+    private router: Router,
+    public auth: Auth,
+    private route: ActivatedRoute
+  ) {}
 
-  emailIn: string = ""
-  passwordIn: string = ""
-
-  Name: string = ""
-  emailUp: string = ""
-  passwordUp: string = ""
-  cpasswordUp: string = ""
-  user: any 
-  constructor(private auths : AuthService,private router:Router,public auth:Auth) { }
-
-
-  signup(){
+  signup() {
     this.router.navigate(['signup']);
   }
 
-  
   login() {
-    if (this.emailIn == "") {
+    if (this.emailIn == '') {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'Please enter your email...',
-        background: "#212529"
-      })
-      return
+        background: '#212529',
+      });
+      return;
     }
-    if (this.passwordIn == "") {
+    if (this.passwordIn == '') {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'Please enter your password...',
-        background: "#212529"
-      })
-      return
+        background: '#212529',
+      });
+      return;
     }
-
-    this.auths.login(this.emailIn, this.passwordIn)
-    this.emailIn = ""
-    this.passwordIn = ""
+    const redirectUrl = this.route.snapshot.queryParamMap.get('redirectUrl') || '';
+    this.auths.login(this.emailIn, this.passwordIn, redirectUrl);
+    this.emailIn = '';
+    this.passwordIn = '';
   }
-
 }
