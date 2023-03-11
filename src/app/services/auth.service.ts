@@ -89,7 +89,7 @@ export class AuthService {
         if (redirectUrl) {
           this.router.navigate([redirectUrl]);
         } else {
-          this.router.navigate(['adventure']);
+          this.router.navigate(['store/adventure']);
         }
       },
       (err) => {

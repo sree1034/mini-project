@@ -1,18 +1,27 @@
 import { Component } from '@angular/core';
 import GamesService from 'src/app/services/games.service';
-import { Router } from '@angular/router';
-import { SinglegameComponent } from '../../singlegame/singlegame/singlegame.component';
+import { ActivatedRoute, Router } from '@angular/router';
+
 @Component({
   selector: 'app-store',
   templateUrl: './store.component.html',
   styleUrls: ['./store.component.css'],
 })
 export class StoreComponent {
-  constructor(private hero: GamesService, private router: Router) {}
-  store = this.hero.getAdventureGames();
+
+  games: any = [];
+  category: string = '';
+  constructor(private gamesService: GamesService, private router: Router, private route: ActivatedRoute) {}
+
+  ngOnInit(){
+    this.route.params.subscribe(params =>{
+      this.category = params['category'] || '';
+      this.games = this.gamesService.getGamesByCategory(this.category);
+    })
+ }
 
   gotoHere(id: any) {
     localStorage.setItem('id', id);
-    this.router.navigate(['/store/' + id]);
+    this.router.navigate(['store/' + this.category + '/' + id]);
   }
 }

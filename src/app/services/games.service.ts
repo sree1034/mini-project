@@ -1,45 +1,25 @@
 import { Injectable } from '@angular/core';
-import { advengames } from 'src/assets/data/adventure';
-import { action, singlevideo } from 'src/assets/data/data';
-import { adventure} from 'src/assets/data/data';
-import { rpg } from 'src/assets/data/data';
-import { act, adven, rpgdat } from 'src/assets/data/data';
-
+import { database } from 'src/assets/database';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export default class GamesService {
- 
+  constructor() {}
 
-  constructor() { }
-  getAdventureGames(){
-    return adventure;
+  getAllGames() {
+    return database.games;
   }
 
-  getActionGames(){
-    return action;
+  getTrendingGames() {
+    return database.games.filter((games) => games.trending)
   }
 
-  getRpgGames(){
-    return rpg
+  getGamesByCategory(category: string) {
+    return database.games.filter((games) => games.category === category);
   }
 
-  getAdventure(){
-    return adven
+  getGameById(id: number) {
+    return database.games.find((games) => games.id === id);
   }
-
-  getAction(){
-    return act
-  }
-
-  getRpg(){
-    return rpgdat
-  }
-
-  getAdventureData(){
-    return advengames;
-  }
-
-
 }
