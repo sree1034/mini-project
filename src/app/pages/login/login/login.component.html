@@ -1,9 +1,7 @@
 <!--<p>login works!</p>-->
 <section
   class="header"
-  style="
-    background-image: url(./assets/images/login.jpg);
-  "
+  style="background-image: url(./assets/images/login.jpg)"
 >
   <div class="mask" style="background-color: rgba(0, 0, 0, 0.7)">
     <div class="container py-5 h-100">
@@ -15,36 +13,46 @@
 
               <div class="form-outline mb-4">
                 <input
-                name="emailIn"
-                placeholder="Email"
-                [(ngModel)]="emailIn"
-                id="email"
-                type="email"
-                class="form-control form-control-lg"
+                  name="emailIn"
+                  placeholder="Email"
+                  [(ngModel)]="emailIn"
+                  id="email"
+                  type="email"
+                  class="form-control form-control-lg"
                 />
                 <!-- <label class="form-label" for="text">Username</label> -->
               </div>
 
               <div class="form-outline mb-4">
                 <input
-                name="passwordIn"
-                placeholder="Password"
-                [(ngModel)]="passwordIn"
-                id="password"
-                type="password"
-                class="form-control form-control-lg"
+                  name="passwordIn"
+                  placeholder="Password"
+                  [(ngModel)]="passwordIn"
+                  id="password"
+                  type="password"
+                  class="form-control form-control-lg"
                 />
                 <!-- <label class="form-label" for="typePasswordX-2">Password</label> -->
               </div>
 
-              <button (click)="login()"class="btn btn-primary btn-lg btn-block" type="submit">
+              <button
+                (click)="login()"
+                class="btn btn-primary btn-lg btn-block"
+                type="submit"
+              >
                 Login
               </button>
-               
+
               <div class="text-center">
-                <br> Not a Memeber..?
-              <a class="mb-85" (click)="signup()">Signup Now</a>
-          </div>
+                <br />
+                <a class="mb-85" (click)="forgotPassword()">Forgot Password</a>
+              </div>
+
+              <div class="text-center">
+                <br />
+                Not a Memeber..?
+                <a class="mb-85" (click)="signup()">Signup Now</a>
+              </div>
             </div>
           </div>
         </div>

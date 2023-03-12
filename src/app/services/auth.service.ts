@@ -4,6 +4,8 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  sendPasswordResetEmail,
+  sendEmailVerification,
 } from '@angular/fire/auth';
 
 import { doc, Firestore, setDoc, getDoc } from '@angular/fire/firestore';
@@ -57,6 +59,7 @@ export class AuthService {
           timer: 2000,
         });
         this.router.navigate(['login']);
+        sendEmailVerification(res.user);
       },
       (err) => {
         if (err.code === 'auth/email-already-in-use') {
@@ -92,6 +95,10 @@ export class AuthService {
         } else {
           this.router.navigate(['store/adventure']);
         }
+
+        if (this.user?.verifyEmail == true) {
+          this.router.navigate(['store/adventure']);
+        } 
       },
       (err) => {
         if (err.code === 'auth/wrong-password') {
@@ -152,5 +159,41 @@ export class AuthService {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  forgotPassword(email: string) {
+    sendPasswordResetEmail(this.auth, email).then(
+      () => {
+        this.router.navigate(['verifyemail']);
+      },
+      (err) => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Something went wrong ' + err,
+          background: '#212529',
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      }
+    );
+  }
+
+  sendEmailForVerification(user: any) {
+    sendEmailVerification(user).then(
+      () => {
+        this.router.navigate(['verifyemail']);
+      },
+      (err) => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Something went wrong ' + err,
+          background: '#212529',
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      }
+    );
   }
 }

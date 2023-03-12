@@ -53,4 +53,8 @@ export class LoginComponent {
     this.emailIn = '';
     this.passwordIn = '';
   }
+
+  forgotPassword(){
+    this.router.navigate(['forgotpassword']);
+  }
 }
