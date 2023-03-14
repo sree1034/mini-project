@@ -2,9 +2,6 @@
     background-size: cover;
 }
 
-
-
-
 .header h1{
     color: white; 
     padding-top: 13.0rem;
@@ -13,6 +10,7 @@
     letter-spacing: 2px;
     font-family: 'Times New Roman', Times, serif;
 }
+
 .header p{
     color:white;
     padding-left: 3.5rem;

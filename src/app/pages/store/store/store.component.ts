@@ -8,17 +8,20 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./store.component.css'],
 })
 export class StoreComponent {
-
   games: any = [];
   category: string = '';
-  constructor(private gamesService: GamesService, private router: Router, private route: ActivatedRoute) {}
+  constructor(
+    private gamesService: GamesService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
-  ngOnInit(){
-    this.route.params.subscribe(params =>{
+  ngOnInit() {
+    this.route.params.subscribe((params) => {
       this.category = params['category'] || '';
       this.games = this.gamesService.getGamesByCategory(this.category);
-    })
- }
+    });
+  }
 
   gotoHere(id: any) {
     localStorage.setItem('id', id);

@@ -1,4 +1,3 @@
-
 .pt-4{
     padding-top: 6.5rem !important;
     padding-bottom: 3.0rem;
@@ -10,13 +9,10 @@
 
 .embed-responsive .card-img-top {
     width: 100%;
-    height: 47vh;
-    
-  
+    height: 47vh;  
 }
 
-.card:hover{
-   
+.card:hover{   
   opacity: 0.8;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;

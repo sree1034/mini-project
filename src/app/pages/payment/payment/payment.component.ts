@@ -15,7 +15,7 @@ export class PaymentComponent {
   data: any;
 
   creditcard: RadioControlValueAccessor;
-  debitcard:RadioControlValueAccessor;
+  debitcard: RadioControlValueAccessor;
   name: string = '';
   cardnumber: string = '';
   expiration: string = '';
@@ -24,7 +24,7 @@ export class PaymentComponent {
   constructor(
     private gamesService: GamesService,
     private route: ActivatedRoute,
-    private fire:FireService
+    private fire: FireService
   ) {}
 
   ngOnInit(): void {
@@ -46,9 +46,9 @@ export class PaymentComponent {
     this.creditcard;
     this.debitcard;
     this.name = '';
-    this.cardnumber = ''; 
-    this.expiration = '';  
-    this.cvv=''; 
+    this.cardnumber = '';
+    this.expiration = '';
+    this.cvv = '';
 
     Swal.fire({
       position: 'center',

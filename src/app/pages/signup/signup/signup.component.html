@@ -1,17 +1,13 @@
-<!--<p>signup works!</p>-->
 <section
   class="header"
-  style="
-    background-image: url(./assets/images/signup.jpg);
-  
-  "
+  style="background-image: url(./assets/images/signup.jpg)"
 >
   <div class="mask" style="background-color: rgba(14, 14, 14, 0.7)">
     <div class="container py-4 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-8 col-lg-6 col-xl-5">
           <div class="card shadow-2-strong bg-dark" style="border-radius: 1rem">
-            <div class="card-body p-5 text-center" style="color: aliceblue;">
+            <div class="card-body p-5 text-center" style="color: aliceblue">
               <h3 class="mb-5">Sign Up</h3>
               <form>
                 <div class="form-outline mb-4">
@@ -22,66 +18,56 @@
                     id="name"
                     type="name"
                     class="form-control form-control-lg"
-                    
                   />
 
-                  <br>
-                  <!-- <label class="form-label" for="name">Username</label> -->
+                  <br />
 
                   <input
-                  name="emailUp"
-                  placeholder="Email"
-                  [(ngModel)]="emailUp"
-                  id="email"
-                  type="email"
-                  class="form-control form-control-lg"
-                  
-                    
+                    name="emailUp"
+                    placeholder="Email"
+                    [(ngModel)]="emailUp"
+                    id="email"
+                    type="email"
+                    class="form-control form-control-lg"
                   />
 
-                  <br>
-                  <!-- <label class="form-label" for="email">Email</label> -->
+                  <br />
 
                   <input
-                  name="passwordUp"
-                  placeholder="Password"
-                  [(ngModel)]="passwordUp"
-                  id="password"
-                  type="password"
-                  class="form-control form-control-lg"
-                  
-                    
+                    name="passwordUp"
+                    placeholder="Password"
+                    [(ngModel)]="passwordUp"
+                    id="password"
+                    type="password"
+                    class="form-control form-control-lg"
                   />
 
-                  <br>
-                  <!-- <label class="form-label" for="password">Password</label> -->
+                  <br />
 
                   <input
-                  name="cpasswordUp"
-                  placeholder="Confirm Password"
-                  [(ngModel)]="cpasswordUp"
-                  id="confirm_password"
-                  type="password"
-                  class="form-control form-control-lg"
-                  
-                    
+                    name="cpasswordUp"
+                    placeholder="Confirm Password"
+                    [(ngModel)]="cpasswordUp"
+                    id="confirm_password"
+                    type="password"
+                    class="form-control form-control-lg"
                   />
 
-                  <br>
-                  <!-- <label class="form-label" for="password"
-                    >Reenter Password</label
-                  > -->
+                  <br />
                 </div>
 
-                <button (click)="signUp()" class="btn btn-primary btn-lg btn-block" type="submit">
+                <button
+                  (click)="signUp()"
+                  class="btn btn-primary btn-lg btn-block"
+                  type="submit"
+                >
                   Signup
                 </button>
                 <div class="text-center">
-                  <br> Already a Memeber..?
-                <a class="mb-85" (click)="login()">Login Now</a>
-            </div>
-
-                
+                  <br />
+                  Already a Memeber..?
+                  <a class="mb-85" (click)="login()">Login Now</a>
+                </div>
               </form>
             </div>
           </div>

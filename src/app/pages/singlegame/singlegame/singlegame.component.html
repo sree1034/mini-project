@@ -5,44 +5,57 @@
   <div class="mask" style="background-color: rgba(10, 8, 8, 0.7)">
     <div class="single">
       <h1>{{ selectedGame.name }}</h1>
-      <br>
+      <br />
 
-      <iframe width="1000" height="500"  [src]="selectedGame.video + '?autoplay=1&vq=hd720' | safe" allow="autoplay" allowfullscreen></iframe>
-      <br><br>
+      <iframe
+        width="1000"
+        height="500"
+        [src]="selectedGame.video + '?autoplay=1&vq=hd720' | safe"
+        allow="autoplay"
+        allowfullscreen
+      ></iframe>
+      <br /><br />
       <div class="container">
         <div class="row">
           <div class="col-sm">
-           <h2>{{selectedGame.buy}}</h2>
+            <h2>{{ selectedGame.buy }}</h2>
           </div>
         </div>
-        </div>
-        <br>
-        
-        <h3>{{ selectedGame.price }}</h3>
+      </div>
+      <br />
 
-        <div *ngIf="(isLoggedIn$ | async) === true">
-        <button (click)="gotoPayment(selectedGame.id)"  type="button" class="btn btn-primary btn-lg">
+      <h3>{{ selectedGame.price }}</h3>
+
+      <div *ngIf="(isLoggedIn$ | async) === true">
+        <button
+          (click)="gotoPayment(selectedGame.id)"
+          type="button"
+          class="btn btn-primary btn-lg"
+        >
           Buy Now
         </button>
-        </div>
-        
-        <div *ngIf="(isLoggedIn$ | async) === false">
-          <button (click)="gotoLogin(selectedGame.id)"  type="button" class="btn btn-primary btn-lg">
-            Buy Now
-          </button>
-          </div>
+      </div>
 
-        <br>
-        <h2>About This Game</h2>
-        <br>
-        <p>{{ selectedGame.description }}</p>
-        <br>
+      <div *ngIf="(isLoggedIn$ | async) === false">
+        <button
+          (click)="gotoLogin(selectedGame.id)"
+          type="button"
+          class="btn btn-primary btn-lg"
+        >
+          Buy Now
+        </button>
+      </div>
+
+      <br />
+      <h2>About This Game</h2>
+      <br />
+      <p>{{ selectedGame.description }}</p>
+      <br />
       <img src="{{ selectedGame.screenshot1 }}" alt="" />
       <br />
-      <p>{{ selectedGame.des}}</p>
-      
-      <br>
-     
+      <p>{{ selectedGame.des }}</p>
+
+      <br />
     </div>
   </div>
 </section>

@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Firestore,collection,addDoc,collectionData } from '@angular/fire/firestore';
+import {
+  Firestore,
+  collection,
+  addDoc,
+  collectionData,
+} from '@angular/fire/firestore';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FireService {
-
-  constructor(private fs:Firestore) { }
+  constructor(private fs: Firestore) {}
 
   addData(data: any) {
     const dataCollection = collection(this.fs, 'paymentdata');

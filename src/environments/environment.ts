@@ -7,5 +7,5 @@ export const environment = {
     authDomain: 'games-store-79e05.firebaseapp.com',
     messagingSenderId: '273605905462',
   },
-    production: false
+  production: false,
 };

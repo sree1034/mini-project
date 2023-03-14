@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'store/:category/:gameId', component: SinglegameComponent },
   { path: 'payment/:gameId', component: PaymentComponent },
   { path: 'verifyemail', component: VerifyemailComponent },
-  {path:'forgotpassword',component:ForgotpasswordComponent}
+  { path: 'forgotpassword', component: ForgotpasswordComponent },
 ];
 
 @NgModule({

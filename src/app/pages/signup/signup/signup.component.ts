@@ -1,4 +1,4 @@
-import { Component,OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Auth } from '@angular/fire/auth';
 import Swal from 'sweetalert2';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
 })
-export class SignupComponent implements OnInit{
+export class SignupComponent implements OnInit {
   emailIn: string = '';
   passwordIn: string = '';
 
@@ -19,10 +19,13 @@ export class SignupComponent implements OnInit{
   cpasswordUp: string = '';
   user: any;
 
-  constructor(private auths: AuthService, public auth: Auth,private router: Router) {}
+  constructor(
+    private auths: AuthService,
+    public auth: Auth,
+    private router: Router
+  ) {}
 
-  
-  login(){
+  login() {
     this.router.navigate(['login']);
   }
 

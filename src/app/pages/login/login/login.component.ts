@@ -48,13 +48,14 @@ export class LoginComponent {
       });
       return;
     }
-    const redirectUrl = this.route.snapshot.queryParamMap.get('redirectUrl') || '';
+    const redirectUrl =
+      this.route.snapshot.queryParamMap.get('redirectUrl') || '';
     this.auths.login(this.emailIn, this.passwordIn, redirectUrl);
     this.emailIn = '';
     this.passwordIn = '';
   }
 
-  forgotPassword(){
+  forgotPassword() {
     this.router.navigate(['forgotpassword']);
   }
 }

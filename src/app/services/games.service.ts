@@ -12,7 +12,7 @@ export default class GamesService {
   }
 
   getTrendingGames() {
-    return database.games.filter((games) => games.trending)
+    return database.games.filter((games) => games.trending);
   }
 
   getGamesByCategory(category: string) {
