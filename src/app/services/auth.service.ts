@@ -8,7 +8,15 @@ import {
   sendEmailVerification,
 } from '@angular/fire/auth';
 
-import { doc, Firestore, setDoc, getDoc } from '@angular/fire/firestore';
+import {
+  doc,
+  Firestore,
+  setDoc,
+  getDoc,
+  collectionData,
+  collection,
+  addDoc,
+} from '@angular/fire/firestore';
 import { BehaviorSubject } from 'rxjs';
 
 import Swal from 'sweetalert2';
@@ -30,7 +38,8 @@ export class AuthService {
   constructor(
     private auth: Auth,
     private firestore: Firestore,
-    private router: Router
+    private router: Router,
+    private fs: Firestore
   ) {}
 
   signup(email: string, password: string, name: string) {
@@ -98,7 +107,7 @@ export class AuthService {
 
         if (this.user?.verifyEmail == true) {
           this.router.navigate(['store/adventure']);
-        } 
+        }
       },
       (err) => {
         if (err.code === 'auth/wrong-password') {
@@ -196,4 +205,6 @@ export class AuthService {
       }
     );
   }
+
+  
 }

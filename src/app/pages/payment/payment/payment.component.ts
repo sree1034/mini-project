@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import GamesService from 'src/app/services/games.service';
 import Swal from 'sweetalert2';
-import { AuthService } from 'src/app/services/auth.service';
+import { RadioControlValueAccessor } from '@angular/forms';
+import { FireService } from 'src/app/services/fire.service';
 
 @Component({
   selector: 'app-payment',
@@ -11,11 +12,19 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class PaymentComponent {
   selectedGame: any;
+  data: any;
+
+  creditcard: RadioControlValueAccessor;
+  debitcard:RadioControlValueAccessor;
+  name: string = '';
+  cardnumber: string = '';
+  expiration: string = '';
+  cvv: string = '';
 
   constructor(
     private gamesService: GamesService,
     private route: ActivatedRoute,
-    private auths: AuthService
+    private fire:FireService
   ) {}
 
   ngOnInit(): void {
@@ -25,7 +34,22 @@ export class PaymentComponent {
     });
   }
 
-  payNow(){
+  payNow() {
+    let data = {
+      name: this.name,
+      cardnumber: this.cardnumber,
+      expiration: this.expiration,
+      cvv: this.cvv,
+    };
+
+    this.fire.addData(data);
+    this.creditcard;
+    this.debitcard;
+    this.name = '';
+    this.cardnumber = ''; 
+    this.expiration = '';  
+    this.cvv=''; 
+
     Swal.fire({
       position: 'center',
       icon: 'success',
@@ -34,6 +58,5 @@ export class PaymentComponent {
       showConfirmButton: false,
       timer: 2000,
     });
-
   }
 }
