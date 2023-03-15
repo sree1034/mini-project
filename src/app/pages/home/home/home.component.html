@@ -131,12 +131,17 @@
             style="width: 18rem"
             *ngFor="let item of trendingGames.slice(0, 3)"
           >
-            <img
-              src="{{ item.thumbnail }}"
-              class="card-img-top"
-              alt="..."
+            <div class="embed-responsive embed-responsive">
+              <img
+                src="{{ item.thumbnail }}"
+                class="card-img-top embed-responsive-item"
+                alt="Card image cap"
+              />
+            </div>
+            <a
               (click)="gotoHere(item.id, item.category)"
-            />
+              class="stretched-link"
+            ></a>
           </div>
         </div>
       </div>
@@ -147,13 +152,17 @@
             style="width: 18rem"
             *ngFor="let item of trendingGames.slice(3, 6)"
           >
-            <img
-              src="{{ item.thumbnail }}"
-              class="card-img-top"
-              alt="..."
+            <div class="embed-responsive embed-responsive">
+              <img
+                src="{{ item.thumbnail }}"
+                class="card-img-top embed-responsive-item"
+                alt="Card image cap"
+              />
+            </div>
+            <a
               (click)="gotoHere(item.id, item.category)"
               class="stretched-link"
-            />
+            ></a>
           </div>
         </div>
       </div>
