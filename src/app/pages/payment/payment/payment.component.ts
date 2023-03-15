@@ -31,21 +31,6 @@ export class PaymentComponent {
   }
 
   payNow() {
-    // let data = {
-    //   name: this.name,
-    //   cardnumber: this.cardnumber,
-    //   expiration: this.expiration,
-    //   cvv: this.cvv,
-    // };
-
-    // this.fire.addData(data);
-    // this.creditcard;
-    // this.debitcard;
-    // this.name = '';
-    // this.cardnumber = '';
-    // this.expiration = '';
-    // this.cvv = '';
-
     Swal.fire({
       position: 'center',
       icon: 'success',
