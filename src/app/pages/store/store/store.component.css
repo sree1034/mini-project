@@ -1,0 +1,21 @@
+.pt-4{
+    padding-top: 6.5rem !important;
+    padding-bottom: 3.0rem;
+}
+
+.card-title{
+    text-align: center;
+}
+
+.embed-responsive .card-img-top {
+    width: 100%;
+    height: 47vh;  
+}
+
+.card:hover{   
+  opacity: 0.8;
+  transition: all 1s ease;
+  cursor: pointer;
+ }
+
+ 

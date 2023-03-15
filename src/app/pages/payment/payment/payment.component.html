@@ -1,0 +1,131 @@
+<section class="header" style="background-color: #191919; height: 100vh">
+  <div class="container">
+    <main>
+      <div class="py-5">
+        <br /><br />
+
+        <div class="row g-5">
+          <div class="col-md-5 col-lg-4 order-md-last">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+              <div
+                class="card"
+                style="width: 18rem; position: relative; left: 50px; top: 70px"
+              >
+                <div class="embed-responsive embed-responsive">
+                  <img
+                    class="card-img-top embed-responsive-item"
+                    src="{{ selectedGame.thumbnail }}"
+                    alt="Card image cap"
+                  />
+                </div>
+              </div>
+            </h4>
+            <br /><br /><br />
+            <h5>{{ selectedGame.name }}</h5>
+
+            <h5>{{ selectedGame.price }}</h5>
+          </div>
+
+          <div class="col-md-7 col-lg-8">
+            <form class="needs-validation" novalidate>
+              <br /><br /><br /><br />
+
+              <h4 class="mb-3">Payment</h4>
+
+              <div class="my-3">
+                <div class="form-check">
+                  <input
+                    id="credit"
+                    name="paymentMethod"
+                    type="radio"
+                    class="form-check-input"
+                    checked
+                    required
+                  />
+                  <label class="form-check-label" for="credit"
+                    >Credit card</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    id="debit"
+                    name="paymentMethod"
+                    type="radio"
+                    class="form-check-input"
+                    required
+                  />
+                  <label class="form-check-label" for="debit">Debit card</label>
+                </div>
+              </div>
+
+              <div class="row gy-3">
+                <div class="col-md-6">
+                  <label for="cc-name" class="form-label">Name on card</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cc-name"
+                    name="ncard"
+                    [(ngModel)]="name"
+                  />
+                  <small class="text">Full name as displayed on card</small>
+                  <div class="invalid-feedback">Name on card is required</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="cc-number" class="form-label">Card number</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cc-number"
+                    name="dcardnumber"
+                    [(ngModel)]="cardnumber"
+                  />
+                  <div class="invalid-feedback">
+                    Credit card number is required
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="cc-expiration" class="form-label"
+                    >Expiration</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cc-expiration"
+                    name="expire"
+                    [(ngModel)]="expiration"
+                  />
+                  <div class="invalid-feedback">Expiration date required</div>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="cc-cvv" class="form-label">CVV</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="cc-cvv"
+                    name="cvvnumber"
+                    [(ngModel)]="cvv"
+                  />
+                  <div class="invalid-feedback">Security code required</div>
+                </div>
+              </div>
+
+              <hr class="my-4" />
+
+              <button
+                class="w-100 btn btn-primary btn-lg"
+                type="submit"
+                (click)="payNow()"
+              >
+                Pay Now
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</section>

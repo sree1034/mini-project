@@ -1,0 +1,180 @@
+<section class="header" style="background-color: #191919">
+  <div class="container-center">
+    <div
+      id="carousel"
+      class="carousel slide carousel-fade"
+      data-bs-ride="carousel"
+      data-bs-pause="false"
+      data-bs-wrap="true"
+      data-bs-interval="3000"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active" id="first">
+          <img
+            src="{{ carouselImages[0] }}"
+            class="d-block w-100"
+            alt="slide-1"
+            width="400"
+            height="700"
+          />
+        </div>
+        <div class="carousel-item" id="second">
+          <img
+            src="{{ carouselImages[1] }}"
+            class="d-block w-100"
+            alt="slide-2"
+            width="400"
+            height="700"
+          />
+        </div>
+        <div class="carousel-item" id="third">
+          <img
+            src="{{ carouselImages[2] }}"
+            class="d-block w-100"
+            alt="slide-3"
+            width="400"
+            height="700"
+          />
+        </div>
+        <div class="carousel-item" id="fourth">
+          <img
+            src="{{ carouselImages[3] }}"
+            class="d-block w-100"
+            alt="slide-4"
+            width="400"
+            height="700"
+          />
+        </div>
+        <div class="carousel-item" id="fifth">
+          <img
+            src="{{ carouselImages[4] }}"
+            class="d-block w-100"
+            alt="slide-5"
+            width="400"
+            height="700"
+          />
+        </div>
+        <div class="carousel-item" id="sixth">
+          <img
+            src="{{ carouselImages[5] }}"
+            class="d-block w-100"
+            alt="slide-6"
+            width="400"
+            height="700"
+          />
+        </div>
+        <div class="carousel-item" id="seventh">
+          <img
+            src="{{ carouselImages[6] }}"
+            class="d-block w-100"
+            alt="slide-7"
+            width="400"
+            height="700"
+          />
+        </div>
+        <div class="carousel-item" id="eighth">
+          <img
+            src="{{ carouselImages[7] }}"
+            class="d-block w-100"
+            alt="slide-8"
+            width="400"
+            height="700"
+          />
+        </div>
+        <div class="carousel-item" id="nineth">
+          <img
+            src="{{ carouselImages[8] }}"
+            class="d-block w-100"
+            alt="slide-9"
+            width="400"
+            height="700"
+          />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="pt-5 pb-5" style="background-color: #1f1e1e; height: 100%">
+  <h1>Trending Games</h1>
+  <div
+    id="carouselExampleControls"
+    class="carousel carousel slide"
+    data-bs-ride="carousel"
+    data-bs-pause="false"
+    data-bs-wrap="true"
+    data-bs-interval="4000"
+  >
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="card-wrapper container-sm d-flex justify-content-around">
+          <div
+            class="card"
+            style="width: 18rem"
+            *ngFor="let item of trendingGames.slice(0, 3)"
+          >
+            <img
+              src="{{ item.thumbnail }}"
+              class="card-img-top"
+              alt="..."
+              (click)="gotoHere(item.id, item.category)"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="card-wrapper container-sm d-flex justify-content-around">
+          <div
+            class="card"
+            style="width: 18rem"
+            *ngFor="let item of trendingGames.slice(3, 6)"
+          >
+            <img
+              src="{{ item.thumbnail }}"
+              class="card-img-top"
+              alt="..."
+              (click)="gotoHere(item.id, item.category)"
+              class="stretched-link"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleControls"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleControls"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</section>

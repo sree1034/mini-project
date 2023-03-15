@@ -1,0 +1,63 @@
+<section class="header">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" routerLink="">Nxt-Gen Games</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-target="#navbarSupportedContent"
+        data-bs-toggle="collapse"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="collapse navbar-collapse justify-content-end"
+        id="navbarSupportedContent"
+      >
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Store
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" routerLink="store/adventure"
+                >Adventure</a
+              >
+              <a class="dropdown-item" routerLink="store/action">Action</a>
+              <a class="dropdown-item" routerLink="store/rpg">RPG</a>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="about">About</a>
+          </li>
+
+          <div *ngIf="(isLoggedIn$ | async) === false">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="login">Signup/Login</a>
+            </li>
+          </div>
+
+          <div *ngIf="(isLoggedIn$ | async) === true">
+            <li class="nav-item">
+              <a class="nav-link" (click)="logout()">Logout</a>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</section>

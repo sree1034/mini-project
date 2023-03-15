@@ -1,0 +1,96 @@
+<section
+  class="header"
+  style="background-image: url(./assets/images/single.jpg)"
+>
+  <div class="mask" style="background-color: rgba(10, 8, 8, 0.7)">
+    <div class="single">
+      <h1>{{ selectedGame.name }}</h1>
+      <br />
+
+      <iframe
+        width="1000"
+        height="500"
+        [src]="selectedGame.video + '?autoplay=1&vq=hd720' | safe"
+        allow="autoplay"
+        allowfullscreen
+      ></iframe>
+      <br /><br />
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <h2>{{ selectedGame.buy }}</h2>
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <h3>{{ selectedGame.price }}</h3>
+
+      <div *ngIf="(isLoggedIn$ | async) === true">
+        <button
+          (click)="gotoPayment(selectedGame.id)"
+          type="button"
+          class="btn btn-primary glow-button"
+        >
+          Buy Now
+        </button>
+      </div>
+
+      <div *ngIf="(isLoggedIn$ | async) === false">
+        <button
+          (click)="gotoLogin(selectedGame.id)"
+          type="button"
+          class="btn btn-primary glow-button"
+        >
+          Buy Now
+        </button>
+      </div>
+
+      <br />
+      <h2>About This Game</h2>
+      <hr class="my-4" />
+      <p>{{ selectedGame.description }}</p>
+      <br />
+      <img src="{{ selectedGame.screenshot1 }}" alt="" />
+      <br />
+      <p>{{ selectedGame.des }}</p>
+
+      <br />
+
+      <div class="game_page_autocollapse sys_req">
+        <h2>System Requirements</h2>
+        <hr class="my-4" />
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <h4>Minimum:</h4>
+
+              <h6>{{ selectedGame.bit }}</h6>
+              <h6>{{ selectedGame.os }}</h6>
+              <h6>{{ selectedGame.processor }}</h6>
+              <h6>{{ selectedGame.memory }}</h6>
+              <h6>{{ selectedGame.graphics }}</h6>
+              <h6>{{ selectedGame.directx }}</h6>
+              <h6>{{ selectedGame.network }}</h6>
+              <h6>{{ selectedGame.storage }}</h6>
+              <h6>{{ selectedGame.notes }}</h6>
+            </div>
+            <div class="col">
+              <h4>Recommended:</h4>
+
+              <h6>{{ selectedGame.bit1 }}</h6>
+              <h6>{{ selectedGame.os1 }}</h6>
+              <h6>{{ selectedGame.processor1 }}</h6>
+              <h6>{{ selectedGame.memory1 }}</h6>
+              <h6>{{ selectedGame.graphics1 }}</h6>
+              <h6>{{ selectedGame.directx1 }}</h6>
+              <h6>{{ selectedGame.network }}</h6>
+              <h6>{{ selectedGame.storage1 }}</h6>
+              <h6>{{ selectedGame.notes1 }}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

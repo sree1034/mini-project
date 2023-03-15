@@ -1,0 +1,59 @@
+<section
+  class="header"
+  style="background-image: url(./assets/images/login.jpg)"
+>
+  <div class="mask" style="background-color: rgba(0, 0, 0, 0.7)">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong bg-dark" style="border-radius: 1rem">
+            <div class="card-body p-5 text-center" style="color: aliceblue">
+              <h3 class="mb-5">Log in</h3>
+
+              <div class="form-outline mb-4">
+                <input
+                  name="emailIn"
+                  placeholder="Email"
+                  [(ngModel)]="emailIn"
+                  id="email"
+                  type="email"
+                  class="form-control form-control-lg"
+                />
+              </div>
+
+              <div class="form-outline mb-4">
+                <input
+                  name="passwordIn"
+                  placeholder="Password"
+                  [(ngModel)]="passwordIn"
+                  id="password"
+                  type="password"
+                  class="form-control form-control-lg"
+                />
+              </div>
+
+              <button
+                (click)="login()"
+                class="btn btn-primary btn-lg btn-block"
+                type="submit"
+              >
+                Login
+              </button>
+
+              <div class="text-center">
+                <br />
+                <a class="mb-85" (click)="forgotPassword()">Forgot Password</a>
+              </div>
+
+              <div class="text-center">
+                <br />
+                Not a Memeber..?
+                <a class="mb-85" (click)="signup()">Signup Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

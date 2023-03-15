@@ -1,0 +1,74 @@
+.single{
+    position: relative;
+    padding: 150px 300px;
+}
+
+.single img{
+    width: 100%;
+    height: auto;
+   padding-bottom: 3.5rem;
+}
+
+.header h1{
+    color: white;
+    font-size: 2.5rem;
+    font-weight:bold; 
+   margin-top: -2.6rem;    
+}
+
+.header p{
+    color: white;
+    font-size:larger;  
+}
+
+.header{
+    background-size: cover;   
+}
+
+.single button{
+    position: relative;
+    left: 750px;
+    bottom: 50px;  
+    color: rgba(255, 255, 255, 0.8);
+    padding: 15px 40px;
+    background: rgb(211, 95, 99);
+    font-weight:bold;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out;
+}
+
+.glow-button:hover {
+   
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+  }
+
+.header h3{
+    color: white;
+    text-align: center;
+    position: relative;
+    left: 150px;  
+}
+
+.header h2{
+    color: white;
+    text-align: left;
+}
+
+.single iframe{
+    right:45px;
+    position: relative;  
+}
+
+.header h4{
+    color: white;
+    
+}
+
+.header h6{
+    color: rgb(128, 126, 126);
+}
+
+.my-4{
+    color: blanchedalmond;
+ 
+}

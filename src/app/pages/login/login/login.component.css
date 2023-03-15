@@ -1,0 +1,21 @@
+.header{
+    padding-top: 4.0rem !important;
+    background-size: cover;
+}
+
+.col-12{
+    padding-top: 9.4rem !important;
+    color: rgb(0, 0, 0);
+    font-family: 'Times New Roman', Times, serif;
+    position: relative;
+    bottom: 60px;
+    
+}
+
+.mb-85{
+    cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+
+
