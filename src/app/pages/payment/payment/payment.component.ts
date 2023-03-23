@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import GamesService from 'src/app/services/games.service';
 import Swal from 'sweetalert2';
-import { RadioControlValueAccessor } from '@angular/forms';
 
 @Component({
   selector: 'app-payment',
@@ -20,7 +20,9 @@ export class PaymentComponent {
 
   constructor(
     private gamesService: GamesService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private auth:AuthService,
+    private router:Router
   ) {}
 
   ngOnInit(): void {
@@ -30,14 +32,55 @@ export class PaymentComponent {
     });
   }
 
-  payNow() {
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Payment Done Successfully...',
-      background: '#212529',
-      showConfirmButton: false,
-      timer: 2000,
-    });
+  payNow(id:any) {
+
+    if (this.name == '') {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please enter your name...',
+        background: '#212529',
+      });
+      return;
+    }
+    if (this.cardnumber == '') {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please enter your card number...',
+        background: '#212529',
+      });
+      return;
+    }
+    if (this.expiration == '') {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please enter expiration number...',
+        background: '#212529',
+      });
+      return;
+    }
+    if (this.cvv == '') {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please enter your cvv number...',
+        background: '#212529',
+      });
+      return;
+    }
+    
+     this.auth.payNow(this.name,this.cardnumber,this.expiration,this.cvv);
+     this.name='';
+     this.cardnumber='';
+     this.expiration='';
+     this.cvv='';
+    
+    // window.parent.location = window.parent.location.href;
+    
   }
+   
+  
 }
+

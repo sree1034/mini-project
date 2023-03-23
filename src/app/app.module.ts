@@ -26,6 +26,7 @@ import { StoreComponent } from './pages/store/store/store.component';
 import { VerifyemailComponent } from './pages/verifyemail/verifyemail.component';
 import { ForgotpasswordComponent } from './pages/forgotpassword/forgotpassword.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

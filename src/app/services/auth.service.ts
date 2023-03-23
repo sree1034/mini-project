@@ -13,9 +13,8 @@ import {
   Firestore,
   setDoc,
   getDoc,
-  collectionData,
   collection,
-  addDoc,
+  addDoc
 } from '@angular/fire/firestore';
 import { BehaviorSubject } from 'rxjs';
 
@@ -206,4 +205,18 @@ export class AuthService {
       }
     );
   }
+
+  payNow(name:string,cardnumber:string,expiration:string,cvv:string)
+  {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Payment Done Successfully...',
+      background: '#212529',
+      showConfirmButton: false,
+      timer: 2000,
+    });
+
+  }
+
 }

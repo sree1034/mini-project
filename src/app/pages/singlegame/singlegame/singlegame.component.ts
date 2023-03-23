@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 export class SinglegameComponent {
   selectedGame: any;
   adventure: any;
+  
 
   pageid = localStorage.getItem('id');
   isLoggedIn$: Observable<boolean>;
@@ -33,11 +34,15 @@ export class SinglegameComponent {
   gotoPayment(id: any) {
     localStorage.setItem('id', id);
     this.router.navigate(['/payment/' + id]);
-  }
-
+   
+    } 
+    
   gotoLogin(id: any) {
     this.router.navigate(['login'], {
       queryParams: { redirectUrl: '/payment/' + id },
     });
   }
 }
+
+
+
