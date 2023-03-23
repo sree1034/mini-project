@@ -34,6 +34,14 @@ export class SinglegameComponent {
   gotoPayment(id: any) {
     localStorage.setItem('id', id);
     this.router.navigate(['/payment/' + id]);
+    const details={
+      Id:this.selectedGame.id,
+      Name:this.selectedGame.name,
+      Category:this.selectedGame.category,
+      Price:this.selectedGame.price
+    } 
+    
+    this.auth.gotoPayment(details)
    
     } 
     
