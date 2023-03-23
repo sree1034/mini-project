@@ -77,8 +77,6 @@ export class PaymentComponent {
      this.expiration='';
      this.cvv='';
     
-    // window.parent.location = window.parent.location.href;
-    
   }
    
   
